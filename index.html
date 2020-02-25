@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="css/custom-game-styles.css" />
+    <title>Who am I,number guessing game,random number</title>
+  </head>
+  <body>
+    <div id="game-container">
+      <h1 id="game-title">Who am I..</h1>
+      <h2>I am a number between 1 & 30. Find me in 5 chances. Let's play.</h2>
 
-<head>
-    <link rel="stylesheet" href="css/style.css" />
-    <meta charset="utf-8">
-    <title>Guessly,number guessing game,random number</title>
-</head>
-
-<body>
-    <div class="game-box">
-        <h1>Guessly</h1>
-        ><p>Guess a number which is randomly generated between 1-20, You have 5 chances!!</p>
-    <div>
-    <div class="form">
-        <label for="guessField">Enter your guess : </label>
-        <input type="text" id="guessed-field" class="guess-Field">
-        <input type="submit"  value="Submit" class="guess-Submit" id="submit-guess">
-        </div>
-
-</body>
-      <script type="text/javascript" src="js/function.js"></script>
+      <div class="game-box">
+        <h3 id="alert-text">Enter your guess below</h3>
+        <input type="text" id="guessed-field" />
+        <button id="submit-guess">Guess</button>
+      </div>
+      <h4 id="chance-alert"></h4>
+      <button id="new-game-button">Restart</button>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/game_mechanics.js"></script>
 </html>

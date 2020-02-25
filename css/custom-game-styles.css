@@ -1,0 +1,123 @@
+body {
+  background-image: url(../images/matrix.jpeg);
+  background-repeat: no-repeat;
+  font-family: 'Century Gothic', sans-serif;
+  overflow-y: hidden;
+}
+
+#game-container{
+  max-width: 80%;
+  height: 90vh;
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #000000c9;
+  color: rgb(160, 233, 100);
+  margin: 9%;
+  
+}
+.game-box{
+  max-width: 80%;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+#game-title {
+  font-size: calc(70px + (100 - 60) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 200;
+  text-align: center;
+  
+}
+ h2{
+  font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+}
+h4{
+  font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  margin: 2%;
+} 
+input{
+  border-radius: 10px;
+  width: 80%;
+  height: 2em;
+  text-align: center;
+  font-size: 20px;
+}
+button{
+  border-radius: 10px;
+  width: 50%;
+  height: 3em;
+  text-align: center;
+  margin: 20px auto;
+  background-color: #24162385;
+  color: rgb(160, 233, 100);
+  font-size: 15px;
+  border: double;
+  cursor: pointer;
+}
+#new-game-button{
+  border-radius: 10px;
+  width: 40%;
+  height: 3em;
+  text-align: center;
+  margin: 2%;
+
+}
+@media only screen and (max-width: 320px){
+  #game-container{
+   
+  margin: 6% auto;
+}
+  #game-title {
+  font-size: calc(50px + (100 - 60) * ((100vw - 300px) / (1600 - 300))); 
+  
+}
+.game-box{
+  margin: 5px auto;
+}
+h2{
+font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+}
+h3{
+  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+}
+h4{
+  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+}
+}
+
+@media only screen and (min-width: 992px) {
+
+  #game-title{
+    margin: 4%;
+  }
+
+#game-container{
+  height: 80vh; 
+  margin: 5% auto;
+}
+h3{
+  font-size: 30px;
+  margin: 1%;
+}
+h2{
+  font-size: calc(20px + (100 - 90) * ((100vw - 300px) / (1600 - 300)));
+}
+h4{
+  font-size: calc(30px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  margin: 1%;
+} 
+input{
+  border-radius: 10px;
+  width: 60%;
+  height: 4em;
+  text-align: center;
+  font-size: 20px;
+}
+button{
+  font-size: 20px;
+}
+#new-game-button{
+  width: 20%;
+}
+
+}
