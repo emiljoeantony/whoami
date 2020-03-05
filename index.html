@@ -1,30 +1,44 @@
 <!DOCTYPE html>
+<!--instruction to the web browser about what version of HTML the page is written in-->
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta charset="windows-1252">
+    <!-- to set the viewport of the page, which will give the browser instructions on how to control the page's dimensions and
+    scaling. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--custom style sheet-->
+    <link rel="stylesheet" href="css/custom-game-styles.css" />
+    <!--favicon-->
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
       href="images/favicon-16x16.png"
     />
-    <link rel="stylesheet" href="css/custom-game-styles.css" />
+
+    <!--title for the website-->
     <title>Who am I,number guessing game,random number</title>
   </head>
   <body>
+    <!-- this section contains the title and explanation of the game -->
     <div id="game-container">
-      <h1 id="game-title">Who am I..</h1>
-      <h2>I am a number between 1 & 30. Find me in 5 chances. Let's play.</h2>
+      <h1 id="game-title">Who am I???</h1>
+      <h2>I am a number between 1 & 45. Let's play a guessing game.</h2>
+
+      <!-- this section contains the game alerts and the input-field-->
 
       <div class="game-box">
         <h3 id="alert-text">Enter your guess below</h3>
         <input type="text" id="guessed-field" />
-        <button id="submit-guess">Guess</button>
+        <input type="submit" id="submit-guess" value="Guess" />
       </div>
-      <h4 id="chance-alert"></h4>
-      <button id="new-game-button">Restart</button>
+      <h4 id="chance-alert">You have 4 chances</h4>
+      <div id="game-over-screen"></div>
+      <button id="new-game-button"></button>
+      <div id="score-hearts"></div>
     </div>
   </body>
+  <!--custom javascript for game mechanics-->
   <script type="text/javascript" src="js/game_mechanics.js"></script>
 </html>

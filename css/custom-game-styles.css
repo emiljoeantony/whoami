@@ -1,11 +1,20 @@
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/* Style inside the body */
 body {
   background-image: url(../images/matrix.jpeg);
   background-repeat: no-repeat;
   font-family: 'Century Gothic', sans-serif;
   overflow-y: hidden;
 }
-
-#game-container{
+/* styles for the game container */
+#game-container {
   max-width: 80%;
   height: 90vh;
   text-align: center;
@@ -14,110 +23,170 @@ body {
   background-color: #000000c9;
   color: rgb(160, 233, 100);
   margin: 9%;
+}
+/* to animate the innerhtml once it activates */
+.blink {
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+}
+
+
+/*new css for text box*/
+input{
+  display: inline-block;
+  font-size: 30px;
+  box-sizing: border-box;
+  color: rgb(160, 233, 100);
+  padding: 2%;
+  text-align: center;
+/* styles for the input field */
+}
+input[type="text"]{
+  width: 30%;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  border-radius: 25px 0 0 25px;
+      background-color: #929292ba;
+/* styles for the submit button */
+}
+input[type="submit"]{
+  border-radius:0 25px 25px 0;
+  width: 40%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(160, 233, 100);
+  color: #000;
+  font-weight: 600;
+}
+input[type="submit"]:hover{
+  background-color:#929292ba;
+  color:rgb(160, 233, 100);
+}
+#new-game-button{
+  border-radius: 25px;
+  width: 40%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url(../images/restart.png);
+  background-repeat: no-repeat;
   
 }
-.game-box{
-  max-width: 80%;
-  padding: 5px;
-  border-radius: 10px;
-  margin: 20px auto;
+#new-game-button:hover{
+box-shadow: 0 1px 1px 0  rgb(160, 233, 100), 0 1px 5px 0  rgb(160, 233, 100);
 }
+#score-hearts{
+  font-size: 60px;
+}
+/* styles for the title */
 #game-title {
   font-size: calc(70px + (100 - 60) * ((100vw - 300px) / (1600 - 300)));
   font-weight: 200;
   text-align: center;
-  
 }
- h2{
+h2 {
   font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
 }
-h4{
+h3{
+  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  margin: 10%;
+}
+h4 {
   font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-  margin: 2%;
-} 
-input{
-  border-radius: 10px;
-  width: 80%;
-  height: 2em;
-  text-align: center;
-  font-size: 20px;
+  margin: 10%;
 }
-button{
-  border-radius: 10px;
-  width: 50%;
-  height: 3em;
-  text-align: center;
-  margin: 20px auto;
-  background-color: #24162385;
-  color: rgb(160, 233, 100);
-  font-size: 15px;
-  border: double;
-  cursor: pointer;
-}
-#new-game-button{
+
+
+#new-game-button {
   border-radius: 10px;
   width: 40%;
   height: 3em;
   text-align: center;
-  margin: 2%;
-
+  margin: 1% 2%;
 }
-@media only screen and (max-width: 320px){
-  #game-container{
-   
-  margin: 6% auto;
+#game-over-screen {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:auto;
+    margin-bottom:auto;
+    width: 0%;
+    height: 0%;
+    background-color: red;
 }
+/* for mobiles with smaller screens */
+@media only screen and (max-width: 320px) {
+  input[type="text"]{
+  width: 30%;
+  height: 2em;
+  font-size: 20px;
+}
+input[type="submit"]{
+  width: 50%;
+  height: 2em;
+  font-size: 20px;
+}
+  #game-container {
+    margin: 6% auto;
+  }
   #game-title {
-  font-size: calc(50px + (100 - 60) * ((100vw - 300px) / (1600 - 300))); 
-  
+    font-size: calc(50px + (100 - 60) * ((100vw - 300px) / (1600 - 300)));
+  }
+  .game-box {
+    margin: 5px auto;
+  }
+  h2 {
+    font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  }
+  h3 {
+    font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  }
+  h4 {
+    font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  }
 }
-.game-box{
-  margin: 5px auto;
-}
-h2{
-font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-}
-h3{
-  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-}
-h4{
-  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-}
-}
-
+/* for tablets and pc's */
 @media only screen and (min-width: 992px) {
-
-  #game-title{
+  #game-title {
     margin: 4%;
   }
 
-#game-container{
-  height: 80vh; 
-  margin: 5% auto;
-}
-h3{
-  font-size: 30px;
-  margin: 1%;
-}
-h2{
-  font-size: calc(20px + (100 - 90) * ((100vw - 300px) / (1600 - 300)));
-}
-h4{
-  font-size: calc(30px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-  margin: 1%;
-} 
-input{
-  border-radius: 10px;
-  width: 60%;
-  height: 4em;
-  text-align: center;
-  font-size: 20px;
-}
-button{
-  font-size: 20px;
-}
-#new-game-button{
-  width: 20%;
-}
+  #game-container {
+    height: 80vh;
+    margin: 5% auto;
+  }
+  h3 {
+    font-size: 30px;
+    margin: 1%;
+  }
+  h2 {
+    font-size: calc(30px + (100 - 90) * ((100vw - 300px) / (1600 - 300)));
+    margin: 5%;
+  }
+  h4 {
+    font-size: calc(30px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+    margin: 1%;
+  }
 
+
+input[type="text"]{
+  width: 10%;
+}
+input[type="submit"]{
+  width: 15%;
+}
+  
+  #new-game-button {
+    width: 10%;
+   
 }
