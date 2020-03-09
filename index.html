@@ -29,15 +29,26 @@
       <!-- this section contains the game alerts and the input-field-->
 
       <div class="game-box">
+        <div id="popup1" class="overlay">
+        <div id="background" class="popup">
+          
+          <a id="new-game-button" class="close" href="#"></a>
+          
+          <h3 id="popup-text"></h3>
+          <!-- <button id="new-game-button"></button> -->
+        </div>
+      </div>
         <h3 id="alert-text">Enter your guess below</h3>
         <input type="text" id="guessed-field" />
         <input type="submit" id="submit-guess" value="Guess" />
       </div>
       <h4 id="chance-alert">You have 4 chances</h4>
-      <div id="game-over-screen"></div>
-      <button id="new-game-button"></button>
-      <div id="score-hearts"></div>
+      <a id="end-game" href="#popup1"></a>
+      
+      
+      
     </div>
+    
   </body>
   <!--custom javascript for game mechanics-->
   <script type="text/javascript" src="js/game_mechanics.js"></script>

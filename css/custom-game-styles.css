@@ -32,9 +32,9 @@ body {
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-direction: alternate;
+ 
+
 }
-
-
 /*new css for text box*/
 input{
   display: inline-block;
@@ -68,18 +68,9 @@ input[type="submit"]:hover{
   background-color:#929292ba;
   color:rgb(160, 233, 100);
 }
-#new-game-button{
-  border-radius: 25px;
-  width: 40%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-image: url(../images/restart.png);
-  background-repeat: no-repeat;
-  
-}
-#new-game-button:hover{
-box-shadow: 0 1px 1px 0  rgb(160, 233, 100), 0 1px 5px 0  rgb(160, 233, 100);
+
+.close:hover{
+box-shadow: 0 1px 12px 0  rgb(160, 233, 100), inset -12px -8px 5px 0  rgb(160, 233, 100);
 }
 #score-hearts{
   font-size: 60px;
@@ -101,29 +92,72 @@ h4 {
   font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
   margin: 10%;
 }
-
-
+#popup-text{
+  display: flex;
+  justify-content: center;
+  margin-top: 45%;
+}
 #new-game-button {
-  border-radius: 10px;
+  
   width: 40%;
   height: 3em;
-  text-align: center;
-  margin: 1% 2%;
+  margin: 50% 27%;
+  background-image: url(../images/playagain.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
-#game-over-screen {
-    position: fixed;
-    right: 0;
-    left: 0;
-    top:0;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:auto;
-    margin-bottom:auto;
-    width: 0%;
-    height: 0%;
-    background-color: red;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
 }
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 10% 25%;
+  padding: 20px;
+  background:  #241623;
+  border-radius: 5px;
+  width: 50%;
+  height: 60vh;
+  position: relative;
+  
+  background-image: url(../images/gameover.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+.popup .close {
+  
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+
 /* for mobiles with smaller screens */
 @media only screen and (max-width: 320px) {
   input[type="text"]{
@@ -186,7 +220,4 @@ input[type="submit"]{
   width: 15%;
 }
   
-  #new-game-button {
-    width: 10%;
-   
-}
+  

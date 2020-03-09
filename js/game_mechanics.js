@@ -4,7 +4,7 @@ var generatedNumber = 0;
 
 // generating random integer
 function generateNumber() {
-  return Math.floor(Math.random() * 45 + 1);
+  return Math.floor(Math.random() * 45 + 1); 
 }
 window.onload = function() {
   generatedNumber = generateNumber();
@@ -19,6 +19,16 @@ function displayInnerHtml(id, message) {
   document.getElementById(id).innerHTML = message;
 }
 
+
+function clearValue(){
+  document.getElementById('guessed-field').value = '';
+  document.getElementById('guessed-field').focus();
+}
+function textBlink(){
+  document.getElementById('popup-text').className = 'blink';
+}
+
+
 /**
  * function to check the user guess and the generated values are the same
  */
@@ -27,49 +37,57 @@ function usersGuess() {
   var inputGuess = document.getElementById('guessed-field').value;
   // to parse the user input
   var userInput = parseInt(inputGuess);
+  
+  
   // to check if the user input is an integer which is a value above 1 and below 45
   if (isNaN(userInput) || userInput < 1 || userInput > 45) {
-    document.getElementById('guessed-field').value = '';
-    document.getElementById('guessed-field').focus();
+    clearValue();
+    
     // to display a text alert if the conditions are not met
-    document.getElementById('alert-text').className = 'blink';
+    textBlink();
     displayInnerHtml('alert-text', 'Please enter a number between 1 & 45');
     return;
   }
+
+
   // to check if the user input is equal to the generated number
   if (generatedNumber === userInput) {
     // message display as animation
-    document.getElementById('alert-text').className = 'blink';
+    textBlink();
+    document.getElementById('background').style.background = "url('../mind-game/images/youwon.png')";
+    document.getElementById('end-game').click();
     displayInnerHtml(
-      'alert-text',
+      'popup-text',
       'CONGRATS!! You guessed it right in try no' + ' ' + (5 - numberOfTry)
-    );
-    displayInnerHtml('chance-alert', 'Restart the game');
-    // to disable the submit button if the conditions are met
-    document.getElementById('submit-guess').disabled = true;
+    ); 
+    
+   
   }
+
+
+
   // to check if the user input is lesser than the generated number
   else if (generatedNumber > userInput) {
     numberOfTry -= 1;
     // to check if the number of guesses is equal to zero
     if (numberOfTry === 0) {
       // message display as animation
-      document.getElementById('alert-text').className = 'blink';
-      document.getElementById('submit-guess').disabled = true;
+      textBlink();
+      
+      
+      document.getElementById('end-game').click();
       displayInnerHtml(
-        'alert-text',
-        'GAME OVER!!!! The number was' +
+        'popup-text',
+        'The number was' +
           '  ' +
           generatedNumber +
-          '. Restart the game.'
+          '.'
       );
-      // to display the number of chances left
-      displayInnerHtml(
-        'chance-alert',
-        'You have' + ' ' + numberOfTry + ' ' + 'chances left'
-      );
+     
+      
       return;
     }
+     // to display the number of chances left
     displayInnerHtml(
       'chance-alert',
       'You have' + ' ' + numberOfTry + ' ' + 'chances left'
@@ -79,28 +97,26 @@ function usersGuess() {
       'UH OH!!! Enter a value higher than' + ' ' + userInput
     );
     // to return the textinput value to emptyfield
-    document.getElementById('guessed-field').value = '';
-    document.getElementById('guessed-field').focus();
+    clearValue();
+    
   } else {
     numberOfTry -= 1;
-
     if (numberOfTry === 0) {
-      document.getElementById('alert-text').className = 'blink';
+      textBlink();
       displayInnerHtml(
         'alert-text',
-        'GAME OVER!!!! The number was' +
+        'The number was' +
           '  ' +
           generatedNumber +
-          '. Restart the game.'
+          '.'
       );
+      
       displayInnerHtml(
         'chance-alert',
         'You have' + ' ' + numberOfTry + ' ' + 'chances left'
       );
-
       return;
     }
-
     displayInnerHtml(
       'chance-alert',
       'You have' + ' ' + numberOfTry + ' ' + 'chances left'
@@ -110,8 +126,8 @@ function usersGuess() {
       'UH OH!!! Enter a value lower than' + ' ' + userInput
     );
     // to return the textinput value to emptyfield
-    document.getElementById('guessed-field').value = '';
-    document.getElementById('guessed-field').focus();
+    clearValue();
+    
   }
 }
 // to execute the function once the guess button is pressed
@@ -134,6 +150,10 @@ keyinput.addEventListener('keyup', function(event) {
 });
 // to start a new game
 function newGame() {
-  window.location.reload();
+  var oldLocation = location.href;
+  var newLocation = oldLocation.split("#")[0];
+  console.log(newLocation);
+  location.replace(newLocation);
+  console.log(location);
 }
 document.getElementById('new-game-button').addEventListener('click', newGame);
