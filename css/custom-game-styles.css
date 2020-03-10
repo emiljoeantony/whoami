@@ -8,8 +8,8 @@
 }
 /* Style inside the body */
 body {
-  background-image: url(../images/matrix.jpeg);
-  background-repeat: no-repeat;
+  background-image: url(../images/8Iva.gif);
+  background-repeat: inherit;
   font-family: 'Century Gothic', sans-serif;
   overflow-y: hidden;
 }
@@ -70,7 +70,7 @@ input[type="submit"]:hover{
 }
 
 .close:hover{
-box-shadow: 0 1px 12px 0  rgb(160, 233, 100), inset -12px -8px 5px 0  rgb(160, 233, 100);
+box-shadow: 0 1px 12px 0 rgb(160, 233, 100), 0 0px 23px 5px rgb(160, 233, 100)
 }
 #score-hearts{
   font-size: 60px;
@@ -85,8 +85,8 @@ h2 {
   font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
 }
 h3{
-  font-size: calc(15px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
-  margin: 10%;
+  font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
+  margin: 15%;
 }
 h4 {
   font-size: calc(20px + (100 - 100) * ((100vw - 300px) / (1600 - 300)));
@@ -95,13 +95,13 @@ h4 {
 #popup-text{
   display: flex;
   justify-content: center;
-  margin-top: 45%;
+  margin-top: 130%;
 }
 #new-game-button {
   
-  width: 40%;
-  height: 3em;
-  margin: 50% 27%;
+  width: 50%;
+  height: 12%;
+  margin: 150% 15%;
   background-image: url(../images/playagain.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -127,17 +127,48 @@ h4 {
 }
 
 .popup {
-  margin: 10% 25%;
+  margin: 15%;
   padding: 20px;
   background:  #241623;
   border-radius: 5px;
-  width: 50%;
-  height: 60vh;
+  width: 60%;
+  height: 80vh;
   position: relative;
-  
-  background-image: url(../images/gameover.png);
+  background-image: url(../images/gameover_mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 5px;
+}
+
+.block:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+  animation: steam 20s linear infinite;
+  
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(80px);
 }
 
 
@@ -157,6 +188,7 @@ h4 {
 .popup .close:hover {
   color: #06D85F;
 }
+
 
 /* for mobiles with smaller screens */
 @media only screen and (max-width: 320px) {
@@ -219,5 +251,35 @@ input[type="text"]{
 input[type="submit"]{
   width: 15%;
 }
+.popup {
+  margin: 10% 25%;
+  padding: 20px;
+  background:  #241623;
+  border-radius: 5px;
+  width: 50%;
+  height: 60vh;
+  position: relative;
+  background-image: url(../images/gameover.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#new-game-button {
   
+  width: 35%;
+  height: 12%;
+  margin: 50% 27%;
+  background-image: url(../images/playagain.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+#popup-text{
+  display: flex;
+  justify-content: center;
+  margin-top: 45%;
+}
   
+}

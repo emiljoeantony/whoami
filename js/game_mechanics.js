@@ -37,35 +37,25 @@ function usersGuess() {
   var inputGuess = document.getElementById('guessed-field').value;
   // to parse the user input
   var userInput = parseInt(inputGuess);
-  
-  
   // to check if the user input is an integer which is a value above 1 and below 45
   if (isNaN(userInput) || userInput < 1 || userInput > 45) {
     clearValue();
-    
     // to display a text alert if the conditions are not met
     textBlink();
     displayInnerHtml('alert-text', 'Please enter a number between 1 & 45');
     return;
   }
-
-
   // to check if the user input is equal to the generated number
   if (generatedNumber === userInput) {
     // message display as animation
     textBlink();
-    document.getElementById('background').style.background = "url('../mind-game/images/youwon.png')";
+    document.getElementById('background').style.background = "url('../mind-game/images/youwon_mobile.png')";
     document.getElementById('end-game').click();
     displayInnerHtml(
       'popup-text',
       'CONGRATS!! You guessed it right in try no' + ' ' + (5 - numberOfTry)
     ); 
-    
-   
   }
-
-
-
   // to check if the user input is lesser than the generated number
   else if (generatedNumber > userInput) {
     numberOfTry -= 1;
@@ -73,8 +63,6 @@ function usersGuess() {
     if (numberOfTry === 0) {
       // message display as animation
       textBlink();
-      
-      
       document.getElementById('end-game').click();
       displayInnerHtml(
         'popup-text',
@@ -83,8 +71,6 @@ function usersGuess() {
           generatedNumber +
           '.'
       );
-     
-      
       return;
     }
      // to display the number of chances left
@@ -109,11 +95,6 @@ function usersGuess() {
           '  ' +
           generatedNumber +
           '.'
-      );
-      
-      displayInnerHtml(
-        'chance-alert',
-        'You have' + ' ' + numberOfTry + ' ' + 'chances left'
       );
       return;
     }

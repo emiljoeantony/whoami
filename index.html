@@ -2,8 +2,13 @@
 <!--instruction to the web browser about what version of HTML the page is written in-->
 <html>
   <head>
+    <meta property="og:title" content="WHO AM I">
+    <meta property="og:description" content="Number guessing game">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="">
     <meta charset="utf-8" />
-    <meta charset="windows-1252">
+    <meta charset="windows-1252" />
     <!-- to set the viewport of the page, which will give the browser instructions on how to control the page's dimensions and
     scaling. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,25 +35,23 @@
 
       <div class="game-box">
         <div id="popup1" class="overlay">
-        <div id="background" class="popup">
+          <div id="background" class="popup block">
+            <a id="new-game-button" class="close" href="#"></a>
+
+            <h3 id="popup-text"></h3>
+            
+            <!-- <button id="new-game-button"></button> -->
+          </div>
           
-          <a id="new-game-button" class="close" href="#"></a>
-          
-          <h3 id="popup-text"></h3>
-          <!-- <button id="new-game-button"></button> -->
         </div>
-      </div>
+        
         <h3 id="alert-text">Enter your guess below</h3>
         <input type="text" id="guessed-field" />
         <input type="submit" id="submit-guess" value="Guess" />
       </div>
       <h4 id="chance-alert">You have 4 chances</h4>
       <a id="end-game" href="#popup1"></a>
-      
-      
-      
     </div>
-    
   </body>
   <!--custom javascript for game mechanics-->
   <script type="text/javascript" src="js/game_mechanics.js"></script>
